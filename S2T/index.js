@@ -1,18 +1,15 @@
 // const fs = require("fs-extra");
 // const googleApi = require('./googleapi/index.js');
 // var chokidar = require("chokidar");
-import fs from "fs-extra";
-import googleApi from "./googleapi/index.js";
-import runOnSrcFolder from './runOnSrcFolder';
+// import fs from "fs-extra";
+// import googleApi from "./googleapi/index.js";
 
-const src = "../audio_source/";
-const dest = "../done/";
-const notSupported = "../not_supported/";
+// const src = "../audio_source/";
+// const dest = "../done/";
+// const notSupported = "../not_supported/";
 // var watcher = chokidar.watch(src, {persistent: true, interval: 0, usePolling: true});
 // var srcFileArr = [];
 // watcher.on('add', async (srcPath) => callApi(srcPath))
-
-setInterval(() => {runOnSrcFolder()}, 5000);
 
 // async function callApi(srcPath) {
 //   const srcPathSplit = srcPath.split('\\');
@@ -39,3 +36,6 @@ setInterval(() => {runOnSrcFolder()}, 5000);
 //     console.log("This file type is not supported!");
 //   }
 // }
+
+import runOnSrcFolder from './runOnSrcFolder';
+setInterval(() => {runOnSrcFolder()}, 5000);

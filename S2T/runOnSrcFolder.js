@@ -7,7 +7,7 @@ import googleApi from "./googleapi/index.js";
 
 const src = "../audio_source/";
 const dest = "../done/";
-const notSupported = "../notSupported/";
+const notSupported = "../not_supported/";
 
 function runOnSrcFolder() {
   fs.readdir(src, (err, files) => {
@@ -19,7 +19,7 @@ function runOnSrcFolder() {
       if (ext === 'wav' || ext === 'mp3') {
         fs.moveSync(src + fileName, dest + fileName, {overwrite: true});
         console.log("File has been moved:", src + fileName);
-        // googleApi(dest + fileName);
+        googleApi(dest + fileName);
       }
       else {
         fs.moveSync(src + fileName, notSupported + fileName, { overwrite: true });
