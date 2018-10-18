@@ -37,5 +37,5 @@
 //   }
 // }
 
-import runOnSrcFolder from './runOnSrcFolder';
+import runOnSrcFolder from './Utils/runOnSrcFolder';
 setInterval(() => {runOnSrcFolder()}, 5000);
