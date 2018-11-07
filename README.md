@@ -1,2 +1,1 @@
-# Chạy lệnh này trong cmd trước khi start
-set GOOGLE_APPLICATION_CREDENTIALS=E:\S2T\key.json
+# Mở file HuongDanSuDungOpenFPT.docx để xem hướng dẫn chi tiết
