@@ -37,5 +37,6 @@
 //   }
 // }
 
-import runOnSrcFolder from './Utils/runOnSrcFolder';
-setInterval(() => {runOnSrcFolder()}, 5000);
+// import runFolder from './Utils/runFolder';
+const runFolder = require('./Utils/runFolder.js');
+setInterval(() => {runFolder()}, 5000);

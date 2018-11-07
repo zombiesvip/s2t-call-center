@@ -1,30 +1,24 @@
 {
-  "name": "s2t",
+  "name": "S2T",
   "version": "1.0.0",
-  "description": "Speech to text",
+  "description": "speech to text",
   "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "run_once": "node ./Utils/runFolder.js",
+    "db": "node ./createDB",
+    "check_length": "node ./Utils/longAudioFilter.js"
+  },
+  "author": "SCC",
+  "license": "ISC",
   "dependencies": {
     "@google-cloud/speech": "^2.1.1",
     "chokidar": "^2.0.4",
+    "encoding": "^0.1.12",
     "fs-extra": "^7.0.0",
     "get-audio-duration": "^0.0.1",
-    "mongodb": "^3.1.7",
-    "musicmetadata": "^2.0.5"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.0.1",
-    "babel-preset-es2015": "^6.24.1",
-    "rimraf": "^2.6.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && node dist/index.js",
-    "audio_source": "npm run build && node dist/Utils/runOnSrcFolder.js",
-    "db": "npm run build && node dist/createDB",
-    "check_length": "npm run build && node dist/Utils/longAudioFilter.js"
-  },
-  "author": "",
-  "license": "ISC"
+    "mongodb": "^3.1.8",
+    "musicmetadata": "^2.0.5",
+    "request": "^2.88.0"
+  }
 }
