@@ -8,7 +8,7 @@ let src = "../audio_source/";
 let dest = "../done/";
 let notSupported = "../not_supported/";
 
-const runSrcFolder = function runFolder() {
+const runSrcFolder = function runFolder(errStream) {
   fs.readdir(src, (err, files) => {
     console.log("Reading files: ", files);
     files.forEach(fileName => {
@@ -20,7 +20,7 @@ const runSrcFolder = function runFolder() {
         fs.move(src + fileName, dest + fileName, { overwrite: true })
           .then(() => {
             // console.log("File has been moved:", src + fileName);
-            fptApi(dest + fileName, fileName);
+            fptApi(dest + fileName, fileName, errStream);
           })
           .catch((error) => {
             console.log(error);
@@ -30,6 +30,8 @@ const runSrcFolder = function runFolder() {
         fs.move(src + fileName, notSupported + fileName, { overwrite: true })
           .then(() => {
             console.log("This file type is not supported:", fileName);
+            errStream.write("This file type is not supported:" + fileName + "\r\n");
+            errStream.write(fileName + "\r\n");
           })
           .catch((error) => {
             console.log(error);
@@ -39,6 +41,6 @@ const runSrcFolder = function runFolder() {
   });
 };
 
-runSrcFolder();
+// runSrcFolder();
 
 module.exports = runSrcFolder;
