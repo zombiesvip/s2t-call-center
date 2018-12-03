@@ -8,7 +8,7 @@ module.exports = function (fileName, text) {
     var dbo = db.db("S2T");
     var datetime = new Date();
     var myobj = { namefile: fileName, text: text, datetime};
-    console.log(myobj);
+    // console.log(myobj);
     dbo.collection("FptS2T").insertOne(myobj, function (err, res) {
       if (err) throw err;
       console.log("1 document inserted");

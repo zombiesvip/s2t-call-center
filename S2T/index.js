@@ -39,4 +39,6 @@
 
 // import runFolder from './Utils/runFolder';
 const runFolder = require('./Utils/runFolder.js');
+// var fs = require('fs-extra');
+// var errStream = fs.createWriteStream("../error-file.txt");
 setInterval(() => {runFolder()}, 5000);

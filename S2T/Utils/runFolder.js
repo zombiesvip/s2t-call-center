@@ -1,8 +1,8 @@
 // execute (callApi & store to database) all file exist on audio_source folder
 
-const fs = require('fs-extra');
+const fs = require("fs-extra");
 // const googleApi = require('../googleapi/index.js');
-const fptApi = require('../fptapi/index.js');
+const fptApi = require("../fptapi/index.js");
 
 let src = "../audio_source/";
 let dest = "../done/";
@@ -22,22 +22,22 @@ const runSrcFolder = function runFolder() {
             // console.log("File has been moved:", src + fileName);
             fptApi(dest + fileName, fileName);
           })
-          .catch(() => {
-            console.log("An error occured!");
-          })
+          .catch((error) => {
+            console.log(error);
+          });
         // googleApi(dest + fileName);
       } else {
         fs.move(src + fileName, notSupported + fileName, { overwrite: true })
           .then(() => {
             console.log("This file type is not supported:", fileName);
           })
-          .catch(() => {
-            console.log("An error occured!");
-          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     });
   });
-}
+};
 
 runSrcFolder();
 
