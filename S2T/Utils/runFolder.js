@@ -8,7 +8,7 @@ let src = "../audio_source/";
 let dest = "../done/";
 let notSupported = "../not_supported/";
 
-const runSrcFolder = function runFolder() {
+const runSrcFolder = function runFolder(errStream) {
   fs.readdir(src, (err, files) => {
     console.log("Reading files: ", files);
     files.forEach(fileName => {
@@ -20,10 +20,10 @@ const runSrcFolder = function runFolder() {
         fs.move(src + fileName, dest + fileName, { overwrite: true })
           .then(() => {
             // console.log("File has been moved:", src + fileName);
-            fptApi(dest + fileName, fileName);
+            fptApi(dest + fileName, fileName, errStream);
           })
-          .catch(() => {
-            console.log("An error occured!");
+          .catch((error) => {
+            console.log(error);
           })
         // googleApi(dest + fileName);
       } else {
