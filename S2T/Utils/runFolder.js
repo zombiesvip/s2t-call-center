@@ -10,6 +10,9 @@ let notSupported = "../not_supported/";
 
 const runSrcFolder = function runFolder(errStream) {
   fs.readdir(src, (err, files) => {
+    if (err) {
+      throw err;
+    }
     console.log("Reading files: ", files);
     files.forEach(fileName => {
       // check file name
@@ -22,7 +25,7 @@ const runSrcFolder = function runFolder(errStream) {
             // console.log("File has been moved:", src + fileName);
             fptApi(dest + fileName, fileName, errStream);
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           });
         // googleApi(dest + fileName);
@@ -30,10 +33,12 @@ const runSrcFolder = function runFolder(errStream) {
         fs.move(src + fileName, notSupported + fileName, { overwrite: true })
           .then(() => {
             console.log("This file type is not supported:", fileName);
-            errStream.write("This file type is not supported:" + fileName + "\r\n");
+            errStream.write(
+              "This file type is not supported:" + fileName + "\r\n"
+            );
             errStream.write(fileName + "\r\n");
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           });
       }

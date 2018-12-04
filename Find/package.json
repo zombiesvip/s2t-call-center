@@ -1,0 +1,13 @@
+{
+  "name": "Find",
+  "version": "1.0.0",
+  "description": "mongodb find function in S2T project",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^3.1.9"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
